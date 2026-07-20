@@ -1,0 +1,544 @@
+The Big Book of C++
+Volume I — The Foundations
+Day 3
+
+"Today, we're going to dissect our first program like engineers."
+
+Chapter 3
+Our First Real C++ Program
+
+Today, you're going to see the most famous program in the history of computer science.
+
+The famous:
+
+Hello, World!
+
+But there's a catch.
+
+Most courses simply show this:
+
+#include <iostream>
+
+int main()
+{
+    std::cout << "Hello, World!";
+}
+
+...and immediately move on to the next chapter.
+
+We're going to do exactly the opposite.
+
+We're going to understand every single character.
+
+1) Our First Program
+
+Create a new Console Application project in Visual Studio.
+
+Then write the following code:
+
+#include <iostream>
+
+int main()
+{
+    std::cout << "Hello, World!" << std::endl;
+
+    return 0;
+}
+
+Compile it.
+
+Run it.
+
+You should see:
+
+Hello, World!
+
+Congratulations.
+
+You've just written your first C++ program.
+
+2) What Happens When the Program Starts?
+
+When Windows launches your program, the following happens:
+
+Windows
+
+↓
+
+Loads the program into memory
+
+↓
+
+Looks for the main() function
+
+↓
+
+Executes it
+
+↓
+
+Program ends
+
+The starting point of every C++ program is:
+
+int main()
+
+Without it, your program wouldn't know where to begin.
+
+3) What Is main()?
+
+Let's look at it:
+
+int main()
+
+Let's break it down.
+
+The word main
+
+main simply means:
+
+main or primary.
+
+It is the program's main function.
+
+When your executable starts, the operating system looks for this function.
+
+Example:
+
+int main()
+{
+}
+
+Even if it's empty, the function still exists.
+
+4) Why the Parentheses?
+main()
+
+The parentheses indicate that main is a function.
+
+Later, you'll create functions such as:
+
+add()
+
+calculateScore()
+
+displayMenu()
+
+Every function uses parentheses.
+
+5) Why Do We Write int?
+
+The keyword:
+
+int
+
+indicates that the function returns an integer.
+
+More precisely:
+
+int main()
+
+means:
+
+This function will return an integer value when the program finishes.
+
+That value is sent back to the operating system.
+
+6) What Does return 0; Mean?
+
+You've probably seen:
+
+return 0;
+
+At first glance, it may seem strange.
+
+Why return zero?
+
+In reality,
+
+return 0;
+
+means:
+
+The program finished successfully.
+
+You can imagine it like this:
+
+Program
+
+↓
+
+return 0
+
+↓
+
+Windows
+
+↓
+
+"Everything went well."
+7) What If We Return Something Else?
+
+For example:
+
+return 1;
+
+or
+
+return -1;
+
+are commonly used to indicate an error.
+
+For example:
+
+0 = Success
+
+1 = Error
+
+2 = Different error
+
+In most modern C++ programs, you'll usually write:
+
+return 0;
+
+when everything has executed correctly.
+
+8) Curly Braces
+
+Look at this:
+
+int main()
+{
+}
+
+Curly braces define a block of code.
+
+Everything inside the braces belongs to the main() function.
+
+Example:
+
+int main()
+{
+    std::cout << "Hello";
+}
+
+The std::cout statement is part of the main() block.
+
+9) What Does #include Mean?
+
+Probably the most mysterious line for beginners:
+
+#include <iostream>
+
+Let's break it down.
+
+The word:
+
+include
+
+means:
+
+Include.
+
+The compiler will look for another file containing code that has already been written.
+
+Imagine a huge toolbox.
+
+When you write:
+
+#include <iostream>
+
+you're telling the compiler:
+
+"Give me the tools needed to display text on the screen."
+
+10) What Is iostream?
+
+The name:
+
+iostream
+
+comes from:
+
+Input Output Stream
+
+It provides tools for input and output.
+
+Among them are:
+
+std::cout
+
+and, later,
+
+std::cin
+
+Without:
+
+#include <iostream>
+
+this line would produce a compilation error:
+
+std::cout << "Hello";
+
+because the compiler wouldn't know what cout is.
+
+11) What Is std?
+
+Another mysterious part:
+
+std::cout
+
+Why not simply write:
+
+cout
+
+Because cout belongs to something called a namespace.
+
+std stands for:
+
+Standard
+
+It represents the C++ Standard Library.
+
+You can think of it like this:
+
+C++ Standard Library
+
+├── cout
+├── cin
+├── string
+├── vector
+└── ...
+
+To access cout, we write:
+
+std::cout
+12) What Does :: Mean?
+
+The two colons:
+
+::
+
+are called the:
+
+Scope Resolution Operator
+
+It may sound complicated, but the idea is simple.
+
+It means:
+
+Look for this element inside this namespace.
+
+For example:
+
+std::cout
+
+can be read as:
+
+Look for cout inside std.
+
+13) What Is cout?
+
+The word:
+
+cout
+
+stands for:
+
+Character Output
+
+Its purpose is simple:
+
+Display text in the console.
+
+Example:
+
+std::cout << "Hello";
+
+Output:
+
+Hello
+14) Why Do We Use <<?
+
+One of the most common beginner questions.
+
+Why do we write:
+
+std::cout << "Hello";
+
+instead of:
+
+std::cout("Hello");
+
+The symbol:
+
+<<
+
+is called the:
+
+Insertion Operator
+
+It sends data into the output stream.
+
+Imagine:
+
+"Hello"
+
+↓
+
+cout
+
+↓
+
+Console
+
+You're "pushing" the text into the console.
+
+15) Displaying Multiple Values
+
+Example:
+
+std::cout << "Hello ";
+std::cout << "Lucas";
+
+Output:
+
+Hello Lucas
+
+You can also write:
+
+std::cout << "Hello " << "Lucas";
+
+The result is exactly the same.
+
+16) What Does std::endl Do?
+
+Example:
+
+std::cout << "Hello" << std::endl;
+
+Output:
+
+Hello
+
+Then the cursor moves to the next line.
+
+Without:
+
+std::endl
+
+the cursor would remain on the same line.
+
+17) Why Semicolons?
+
+Example:
+
+std::cout << "Hello";
+
+The semicolon tells the compiler:
+
+This instruction is finished.
+
+Without it:
+
+std::cout << "Hello"
+
+you'll get a compilation error.
+
+Program Summary
+#include <iostream>
+
+int main()
+{
+    std::cout << "Hello, World!" << std::endl;
+
+    return 0;
+}
+
+Breakdown:
+
+#include <iostream>
+
+↓
+
+Includes the iostream library
+
+int main()
+
+↓
+
+The program's entry point
+
+std::cout
+
+↓
+
+Displays text
+
+<<
+
+↓
+
+Sends data to the output stream
+
+std::endl
+
+↓
+
+Moves to the next line
+
+return 0;
+
+↓
+
+Indicates that the program ended successfully
+Exercises
+Exercise 1
+
+Modify the program to display:
+
+Hello
+
+My name is [your name]
+
+I'm learning C++
+Exercise 2
+
+Display:
+
+*******
+* C++ *
+*******
+Exercise 3
+
+Display your age, your city, and your favorite game.
+
+For now, write them directly as text.
+
+Exercise 4
+
+Intentionally remove a semicolon (;) from the end of a line.
+
+Observe the error message.
+
+Try to understand what the compiler is telling you.
+
+Day 3 Challenge
+
+Create the following welcome screen:
+
+=================================
+
+      MY FIRST PROGRAM
+
+=================================
+
+Name: Steve
+
+Age: 20
+
+Welcome to the world of C++!
+
+=================================
+
+Use multiple std::cout statements and several std::endl calls.
